@@ -25,6 +25,23 @@ namespace Arithmetics
             Console.WriteLine(x);
             Console.WriteLine(y);
 
+            var coeff = 9999999999999999999L;
+
+            int z;
+
+            checked
+            {
+                z = (int)coeff;
+            }
+            
+
+            Console.WriteLine(z);
+
+            var s = "42";
+
+            z = int.Parse(s);
+            Console.WriteLine(z);
+
             Console.ReadKey();
         }
     }
