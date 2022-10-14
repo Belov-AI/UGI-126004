@@ -15,9 +15,14 @@ namespace SinCos
 
         static void PrintSinusCosinus(double angleInDegrees)
         {
-            var angleInRadians = angleInDegrees * Math.PI / 180;
+            double angleInRadians = DegreesToRadians(angleInDegrees);
             Console.WriteLine("sin(" + angleInDegrees + "°) = " + Math.Round(Math.Sin(angleInRadians), 3));
             Console.WriteLine("cos(" + angleInDegrees + "°) = " + Math.Round(Math.Cos(angleInRadians), 3));
+        }
+
+        private static double DegreesToRadians(double angleInDegrees)
+        {
+            return angleInDegrees * Math.PI / 180;
         }
     }
 }
