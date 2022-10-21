@@ -16,6 +16,7 @@ namespace SinCos
         static void PrintSinusCosinus(double angleInDegrees)
         {
             double angleInRadians = DegreesToRadians(angleInDegrees);
+
             Console.WriteLine("sin(" + angleInDegrees + "°) = " + Math.Round(Math.Sin(angleInRadians), 3));
             Console.WriteLine("cos(" + angleInDegrees + "°) = " + Math.Round(Math.Cos(angleInRadians), 3));
         }

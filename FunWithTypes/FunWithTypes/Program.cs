@@ -7,20 +7,20 @@ namespace FunWithTypes
         static void Main()
         {
             double pi = Math.PI;
-            int oneThousand = 1000L; 
-            float piF = pi;
-            float oneThousandPi = pi * oneThousand;
-            int rounded1000Pi = oneThousandPi; //тут должно правильно округляться
-            int integerPart = oneThousandPi; //а тут нужно вычислить целую часть
+            int oneThousand = (int)1000L; 
+            float piF = (float)pi;
+            float oneThousandPi = piF * oneThousand;
+            int rounded1000Pi = (int)Math.Round(oneThousandPi);
+            int integerPart = (int)oneThousandPi;
             Console.WriteLine(rounded1000Pi);
-            Console.WriteLine(integrePart);       
+            Console.WriteLine(integerPart);       
             
-            var a = 10;
-            a += 0.5; //надо исправить, чтоб работало
+            var a = 10.0;
+            a += 0.5;
             Console.WriteLine(a);
 
             var b = "15";
-            var c = a + b; //тут что-то не так! надо поправить
+            var c = a + int.Parse(b);
             Console.WriteLine(c);
             Console.ReadKey();
         }
