@@ -38,7 +38,13 @@ namespace CharactersAndStrings
             Console.WriteLine(newString);
             Console.WriteLine("\xAE");
             Console.WriteLine("aa\bz");
-
+            Console.WriteLine(@"C:\Windows\System32\drivers");
+            Console.WriteLine(@"Первая строка
+Вторая строка");
+            var x = 12.345689;
+            Console.WriteLine("{0:G} {0:F3} {0:E} {0:P} {0:C}", x);
+            Console.WriteLine("{0} {0:X}", (int)'Я');
+            Console.WriteLine($"Текущее время {DateTime.Now:HH:mm dd.MM.yyyy}");
             Console.ReadKey();
         }
     }
