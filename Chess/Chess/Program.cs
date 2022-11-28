@@ -41,7 +41,7 @@ namespace Chess
             Console.WriteLine("Введите ход белой пешки");
             string whitePownMove = Console.ReadLine();
 
-            if (IsWhitePawnMoveCorrect(blackPawnPosition, whitePawnPosition, whitePownMove))
+            if (IsWhitePawnMoveCorrect(whitePawnPosition, blackPawnPosition, whitePownMove))
                 Console.WriteLine("Так ходить разрешается");
             else
                 Console.WriteLine("Так ходить не разрешается");
@@ -65,23 +65,47 @@ namespace Chess
             return br == wr + 1 && (bc == wc - 1 || bc == wc + 1);
         }
 
-        static bool IsWhitePawnMoveCorrect(string bp, string wp, string move)
+        static bool IsWhitePawnMoveCorrect(string whitePawnPosition, string blackPawnPosition, string move)
         {
-            int wr, wc, br, bc, mr, mc;
-            DecodePosition(bp, out br, out bc);
-            DecodePosition(wp, out wr, out wc);
-            DecodePosition(move, out mr, out mc);
+            return CanWhitePawnMove(whitePawnPosition, move)
+                && !IsWhitePawnBlocked(whitePawnPosition, blackPawnPosition, move)
+                && !IsWhitePawnUnderStrike(whitePawnPosition, blackPawnPosition)
+                ;
+        }
 
-            var dr = mr - wr;
-            //return wc == mc
-            //    && wr == 
-            //    && !(mr == br - 1 && (mc == bc - 1 || mc == bc + 1)))
+        static bool CanWhitePawnMove(string whitePawnPosition, string move)
+        {
+            int startRow, startColumn, endRow, endColumn;
+            DecodePosition(whitePawnPosition, out startRow, out startColumn);
+            DecodePosition(move, out endRow, out endColumn);
 
-            //    (wc == bc && (mr != br || !(wr == 2 && br == 3 && mr == 4))
-            //     (dr == 1 || (wr == 2 && dr == 2)) 
-            //    && 
+            return startColumn == endColumn && (endRow == startRow + 1 || startRow == 2 && endRow == startRow + 2);
+        }
 
-            throw new NotImplementedException();
+        static bool IsWhitePawnBlocked(string whitePawnPosition, string blackPawnPosition, string move)
+        {
+            int startRow, startColumn, endRow, endColumn;
+            DecodePosition(whitePawnPosition, out startRow, out startColumn);
+            DecodePosition(move, out endRow, out endColumn);
+
+            int blackPawnRow, blackPawnColumn;
+            DecodePosition(blackPawnPosition, out blackPawnRow, out blackPawnColumn);
+
+            return startColumn == blackPawnColumn
+                && (blackPawnRow == startRow + 1
+                || startRow == 2 && endRow == startRow + 2 && blackPawnRow == endRow);
+        }
+
+        static bool IsWhitePawnUnderStrike(string whitePawnPosition, string blackPawnPosition)
+        {
+            int whitePawnRow, whitePawnColumn;
+            DecodePosition(whitePawnPosition, out whitePawnRow,out whitePawnColumn);
+
+            int blackPawnRow, blackPawnColumn;
+            DecodePosition(blackPawnPosition, out blackPawnRow, out blackPawnColumn);
+
+            return blackPawnRow == whitePawnRow + 2
+                && Math.Abs(blackPawnColumn - whitePawnColumn) == 1;
         }
 
         static void DecodePosition(string position, out int row, out int column)
