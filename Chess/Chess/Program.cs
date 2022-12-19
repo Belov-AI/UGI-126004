@@ -52,7 +52,7 @@ namespace Chess
         static bool CheckPawnPosition(string position)
         {
             int r, c;
-            DecodePosition(position, out r, out c); 
+            (r, c) = DecodePosition(position); 
 
             return r > 1 & r < 8;
         }
@@ -60,8 +60,8 @@ namespace Chess
         static bool IsBlackPawnUnderStrike(string bp, string wp)
         {
             int wr, wc, br, bc;
-            DecodePosition(bp, out br, out bc);
-            DecodePosition(wp, out wr, out wc);
+            (br, bc) = DecodePosition(bp);
+            (wr, wc) = DecodePosition(wp);
             return br == wr + 1 && (bc == wc - 1 || bc == wc + 1);
         }
 
@@ -76,8 +76,8 @@ namespace Chess
         static bool CanWhitePawnMove(string whitePawnPosition, string move)
         {
             int startRow, startColumn, endRow, endColumn;
-            DecodePosition(whitePawnPosition, out startRow, out startColumn);
-            DecodePosition(move, out endRow, out endColumn);
+            (startRow, startColumn) = DecodePosition(whitePawnPosition);
+            (endRow, endColumn) = DecodePosition(move);
 
             return startColumn == endColumn && (endRow == startRow + 1 || startRow == 2 && endRow == startRow + 2);
         }
@@ -85,11 +85,11 @@ namespace Chess
         static bool IsWhitePawnBlocked(string whitePawnPosition, string blackPawnPosition, string move)
         {
             int startRow, startColumn, endRow, endColumn;
-            DecodePosition(whitePawnPosition, out startRow, out startColumn);
-            DecodePosition(move, out endRow, out endColumn);
+            (startRow, startColumn) = DecodePosition(whitePawnPosition);
+            (endRow, endColumn) = DecodePosition(move);
 
             int blackPawnRow, blackPawnColumn;
-            DecodePosition(blackPawnPosition, out blackPawnRow, out blackPawnColumn);
+            (blackPawnRow, blackPawnColumn) = DecodePosition(blackPawnPosition);
 
             return startColumn == blackPawnColumn
                 && (blackPawnRow == startRow + 1
@@ -99,19 +99,20 @@ namespace Chess
         static bool IsWhitePawnUnderStrike(string whitePawnPosition, string blackPawnPosition)
         {
             int whitePawnRow, whitePawnColumn;
-            DecodePosition(whitePawnPosition, out whitePawnRow,out whitePawnColumn);
+            (whitePawnRow, whitePawnColumn) = DecodePosition(whitePawnPosition);
 
             int blackPawnRow, blackPawnColumn;
-            DecodePosition(blackPawnPosition, out blackPawnRow, out blackPawnColumn);
+            (blackPawnRow, blackPawnColumn) = DecodePosition(blackPawnPosition);
 
             return blackPawnRow == whitePawnRow + 2
                 && Math.Abs(blackPawnColumn - whitePawnColumn) == 1;
         }
 
-        static void DecodePosition(string position, out int row, out int column)
+        static (int, int) DecodePosition(string position)
         {
-            row = int.Parse(position[1].ToString());
-            column = (int)position[0] - 0x60;
+            var row = int.Parse(position[1].ToString());
+            var column = (int)position[0] - 0x60;
+            return (row, column);
         }
     }
 }

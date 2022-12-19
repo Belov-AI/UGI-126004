@@ -27,8 +27,22 @@ namespace Chessboard
 
                 if (input == "")
                     break;
+                //try
+                //{
+                //    boardSize = int.Parse(input);
+                //}
+                //catch(Exception e)
+                //{
+                //    Console.WriteLine(e.Message);
+                //    Console.WriteLine("Повторите ввод");
+                //    continue;
+                //}
 
-                boardSize = int.Parse(input);
+                if(!int.TryParse(input, out boardSize))
+                {
+                    Console.WriteLine("Ошибка. Повторите ввод");
+                    continue;
+                }
 
                 if( boardSize < 1 || boardSize > 26)
                 {
