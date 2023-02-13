@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuclidLibrary", "EuclidLibrary\EuclidLibrary.csproj", "{DF14F6F6-BE8C-4EE7-A056-115B144379D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuclidConsole", "EuclidConsole\EuclidConsole.csproj", "{B8A3735F-F470-4BFA-A491-A502D34266CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF14F6F6-BE8C-4EE7-A056-115B144379D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF14F6F6-BE8C-4EE7-A056-115B144379D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF14F6F6-BE8C-4EE7-A056-115B144379D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF14F6F6-BE8C-4EE7-A056-115B144379D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A3735F-F470-4BFA-A491-A502D34266CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A3735F-F470-4BFA-A491-A502D34266CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A3735F-F470-4BFA-A491-A502D34266CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A3735F-F470-4BFA-A491-A502D34266CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96C4C103-6369-42C3-9B0C-45B5C6E29322}
+	EndGlobalSection
+EndGlobal
