@@ -14,12 +14,19 @@ namespace ClassAndObjects
             mike.Name = "Михаил";
             mike.Surname = "Петров";
             mike.Age = 18;
+            Console.WriteLine(mike.FullName);
+            //mike.SetAge(18);
             //PrintPerson(mike);
 
-            var kate = new Person { Name = "Екатерина", Surname = "Иванова", Age = 17 };
+            //var kate = new Person { Name = "Екатерина", Surname = "Иванова", Age =17};
+            var kate = new Person("Екатерина", "Иванова", 17);
+
+            //kate.SetAge(17);
             //PrintPerson(kate);
 
-            var people = new[] { mike, kate };
+            var john = new Person();
+
+            var people = new[] { mike, kate, john };b
 
             foreach(var person in people)
                 PrintPerson(person);
@@ -29,7 +36,7 @@ namespace ClassAndObjects
 
         static void PrintPerson(Person person)
         {
-            Console.WriteLine($"{person.Name} {person.Surname}, возраст {person.Age}");
+            Console.WriteLine(person.GetInfo());
         }
     }
 }
