@@ -8,6 +8,7 @@ namespace ClassAndObjects
 {
     public class Person
     {
+        public static readonly string Species;
         public string Name { get; set; }
         public string Surname { get; set; }
 
@@ -38,6 +39,16 @@ namespace ClassAndObjects
         }
 
         public Person() : this("John", "Doe", 33) { }
+
+        static Person()
+        {
+            Species = "homo sapience";
+        }
+
+        ~Person()
+        {
+            Console.WriteLine($"объект {FullName} удален");
+        }
 
         public string GetInfo() => $"{FullName}, возраст {Age}";
 

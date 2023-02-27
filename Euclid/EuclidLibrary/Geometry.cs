@@ -16,5 +16,7 @@ namespace EuclidLibrary
 
             return new Segment(a, b);
         }
+
+        public static bool IsPointInsideSegment(Point p, Segment s) => s.IsPointInside(p);
     }
 }

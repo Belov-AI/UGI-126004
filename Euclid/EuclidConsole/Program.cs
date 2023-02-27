@@ -56,6 +56,5 @@ namespace EuclidConsole
         {
             Console.WriteLine($"Отрезок с концами в точках ({s.A.X}; {s.A.Y}) и ({s.B.X}; {s.B.Y})");
         }
-
     }
 }

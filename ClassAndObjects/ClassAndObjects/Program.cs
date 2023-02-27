@@ -14,6 +14,7 @@ namespace ClassAndObjects
             mike.Name = "Михаил";
             mike.Surname = "Петров";
             mike.Age = 18;
+            Console.WriteLine(Person.Species);
             Console.WriteLine(mike.FullName);
             //mike.SetAge(18);
             //PrintPerson(mike);
@@ -25,8 +26,9 @@ namespace ClassAndObjects
             //PrintPerson(kate);
 
             var john = new Person();
+            john = new Person("John", "Smith", 24);
 
-            var people = new[] { mike, kate, john };b
+            var people = new[] { mike, kate, john };
 
             foreach(var person in people)
                 PrintPerson(person);
