@@ -20,13 +20,23 @@ namespace ClassAndObjects
             //PrintPerson(mike);
 
             //var kate = new Person { Name = "Екатерина", Surname = "Иванова", Age =17};
-            var kate = new Person("Екатерина", "Иванова", 17);
+            var kate = new Person("Екатерина", "Иванова", Gender.Female, 17);
+            kate.Gender = Gender.Female;
+
+            //if (kate.Gender == Gender.Female)
+            //    Console.WriteLine($"{kate.Name} - женщина");
+            //else if (kate.Gender == Gender.M)
+            //    Console.WriteLine($"{kate.Name} - мужчина");
+
+            Console.WriteLine($"{kate.Name} - {kate.Gender.ToString().ToLower()}");
+            Console.WriteLine((int)kate.Gender);
+
 
             //kate.SetAge(17);
             //PrintPerson(kate);
 
             var john = new Person();
-            john = new Person("John", "Smith", 24);
+            john = new Person("John", "Smith", Gender.Male, 24);
 
             var people = new[] { mike, kate, john };
 

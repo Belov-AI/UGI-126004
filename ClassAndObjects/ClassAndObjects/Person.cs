@@ -12,6 +12,8 @@ namespace ClassAndObjects
         public string Name { get; set; }
         public string Surname { get; set; }
 
+        public Gender Gender { get; set; }
+
         public string FullName
         {
             get { return $"{Name} {Surname}"; }
@@ -31,14 +33,15 @@ namespace ClassAndObjects
             }
         }
 
-        public Person(string name, string surname, int age)
+        public Person(string name, string surname, Gender gender, int age)
         {
             Name = name;
             Surname = surname;
             Age = age;
+            Gender = gender;
         }
 
-        public Person() : this("John", "Doe", 33) { }
+        public Person() : this("John", "Doe", Gender.Male, 33) { }
 
         static Person()
         {
