@@ -47,12 +47,5 @@ namespace EuclidLibrary.UnitTests
             Assert.That(() => Geometry.CreateSegment(a, b), 
                 Throws.ArgumentException);
         }
-
-        [Test]
-        public void Foo()
-        {
-            var s = "абвгдежз";
-            Assert.Pass();
-        }
     }
 }
