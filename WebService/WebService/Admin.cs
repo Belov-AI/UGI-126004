@@ -12,5 +12,8 @@ namespace WebService
 
         public Admin(string login, string email, string password, int level) 
             : base(login, email, password) => AccessLevel = level;
+
+        public override string GetInfo() => 
+            $"{base.GetInfo()}. Уровень досупа {AccessLevel}";
     }
 }

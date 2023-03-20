@@ -16,5 +16,14 @@ namespace EuclidLibrary
             X = x;
             Y = y;
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is Point p)
+                return Math.Abs(X - p.X) < Geometry.Epsilon &&
+                    Math.Abs(Y - p.Y) < Geometry.Epsilon;
+
+            return false;
+        }
     }
 }

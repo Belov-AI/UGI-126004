@@ -12,6 +12,8 @@ namespace WebService
 
         public User(string login) => Login = login;
 
-        public string GetInfo() => $"Пользователь {Login}";
+        public virtual string GetInfo() => $"Пользователь {Login}";
+
+        public override string ToString() => Login;
     }
 }

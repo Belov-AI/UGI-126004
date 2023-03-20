@@ -11,6 +11,7 @@ namespace WebService
         static void Main(string[] args)
         {
             var james = new User("James007");
+            Console.WriteLine(james.ToString());
 
             //Console.WriteLine(james.GetInfo());
 
@@ -28,6 +29,8 @@ namespace WebService
 
             var users = new User[] { james, john, kate, admin };
 
+            Console.WriteLine();
+
             foreach (var user in users)
                 Console.WriteLine(user.GetInfo());
 
@@ -35,8 +38,19 @@ namespace WebService
 
             User kate2 = (User)kate;
             Console.WriteLine(kate2.GetInfo());
-            RegisteredUser kate3 = (RegisteredUser)kate2;
-            Console.WriteLine(kate3.Email);
+
+            //RegisteredUser kate3 = (RegisteredUser)kate2;
+            //Console.WriteLine(kate3.Email);
+            if (kate2 is RegisteredUser kate3)
+                Console.WriteLine(kate3.Email);
+            else
+                Console.WriteLine(kate2.Login + " не зарегистрированный пользователь");
+
+            //Admin admin2 = (Admin)kate2;
+            if (kate2 is Admin admin2)
+                Console.WriteLine(admin2.AccessLevel);
+            else
+                Console.WriteLine(kate2.Login + " не админ");
 
             Console.ReadKey();
         }

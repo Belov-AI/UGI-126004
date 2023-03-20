@@ -19,5 +19,7 @@ namespace WebService
 
             password = newPassword;
         }
+
+        public override string GetInfo() => $"{base.GetInfo()}. Номер карты {cardNumber}";
     }
 }

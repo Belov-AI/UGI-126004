@@ -16,5 +16,7 @@ namespace WebService
             Email = email;
             this.password = password;
         }
+
+        public override string GetInfo() => $"{base.GetInfo()}. Email: {Email}";
     }
 }
