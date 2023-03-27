@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace EuclidLibrary.UnitTests
 {
@@ -50,6 +51,20 @@ namespace EuclidLibrary.UnitTests
             var p = new Point(x, y);
 
             Assert.That(s.IsPointInside(p), Is.EqualTo(result));
+        }
+
+        [TestCase(1, 2, -1, 3, 1, 2, -1, 3, true)]
+        [TestCase(1, 2, -1, 3, -1, 3, 1, 2, true)]
+        [TestCase(1, 2, -1, 3, 1, 3, -2, 4, false)]
+        public void Equals_ToSegment_Result(
+            double x1, double y1, double x2, double y2,
+            double x3, double y3, double x4, double y4,
+            bool result)
+        {
+            var s1 = new Segment(new Point(x1, y1), new Point(x2, y2));
+            var s2 = new Segment(new Point(x3, y3), new Point(x4, y4));
+
+            Assert.That(s1.Equals(s2), Is.EqualTo(result));
         }
     }
 }

@@ -36,5 +36,13 @@ namespace EuclidLibrary
 
             return false;
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is Segment s)
+                return A.Equals(s.A) && B.Equals(s.B) || A.Equals(s.B) && B.Equals(s.A);
+
+            return false;
+        }
     }
 }
