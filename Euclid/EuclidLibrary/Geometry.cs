@@ -8,7 +8,8 @@ namespace EuclidLibrary
 {
     public static class Geometry
     {
-        public static readonly double Epsilon = 1e-8;
+        public static readonly int Accuracy = 8;
+        public static readonly double Epsilon = Math.Pow(10,-Accuracy);
         public static Segment CreateSegment(Point a, Point b)
         {
             if (a.Equals(b))

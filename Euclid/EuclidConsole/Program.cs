@@ -12,10 +12,12 @@ namespace EuclidConsole
         static void Main(string[] args)
         {
             Point a = new Point(1, 2);
-            Console.WriteLine($"Точка A({a.X}; {a.Y})");
+            Console.WriteLine(a);
+            //Console.WriteLine($"Точка A({a.X}; {a.Y})");
 
             var b = new Point(-3, 0);
-            Console.WriteLine($"Точка В({b.X}; {b.Y})");
+            Console.WriteLine(b);
+            //Console.WriteLine($"Точка В({b.X}; {b.Y})");
 
             Segment s = new Segment(a, b);
             PrintSegmentInfo(s);

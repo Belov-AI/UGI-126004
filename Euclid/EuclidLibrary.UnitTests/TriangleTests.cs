@@ -31,5 +31,22 @@ namespace EuclidLibrary.UnitTests
             Assert.That(t.B.Equals(b), Is.True);
             Assert.That(t.C.Equals(c), Is.True);   
         }
+
+        [Test]
+        public void SidesTest()
+        {
+            var a = new Point(1, 2);
+            var b = new Point(-1, 3);
+            var c = new Point(2, 0);
+
+            var t = new Triangle(a, b, c);
+
+            Assert.That(t.AB.Equals(new Segment(b, a)), Is.True);
+            Assert.That(t.AB.Equals(new Segment(a, c)), Is.False);
+            Assert.That(t.AC.Equals(new Segment(c, a)), Is.True);
+            Assert.That(t.AC.Equals(new Segment(c, b)), Is.False);
+            Assert.That(t.BC.Equals(new Segment(c, b)), Is.True);
+            Assert.That(t.BC.Equals(new Segment(b, a)), Is.False);
+        }
     }
 }

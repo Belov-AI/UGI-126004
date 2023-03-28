@@ -25,5 +25,14 @@ namespace EuclidLibrary
 
             return false;
         }
+
+        public override string ToString() => $"Точка ({X}; {Y})";
+
+        public override int GetHashCode()
+        {
+            return Math.Round(X, Geometry.Accuracy).GetHashCode() ^ 
+                Math.Round(Y, Geometry.Accuracy).GetHashCode();
+        }
+
     }
 }
