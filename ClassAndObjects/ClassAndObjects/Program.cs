@@ -37,13 +37,30 @@ namespace ClassAndObjects
 
             var john = new Person();
             john = new Person("John", "Smith", Gender.Male, 24);
+            var helen = new Person("Елена", "Иванова", Gender.Female, 20);
+            var ekaterina = new Person("Екатерина", "Иванова", Gender.Female, 18);
 
-            var people = new[] { mike, kate, john };
+            var people = new[] { ekaterina, helen, mike, kate, john };
+            PrintPersonArray(people);
 
-            foreach(var person in people)
-                PrintPerson(person);
+            Array.Sort(people);
+            PrintPersonArray(people);
+
+            Array.Sort(people, new PersonComparerDescendingByAge());
+            PrintPersonArray(people);
+
+            Array.Sort(people, new PersonComparerByName());
+            PrintPersonArray(people);
 
             Console.ReadKey();
+        }
+
+        private static void PrintPersonArray(Person[] people)
+        {
+            Console.WriteLine();
+
+            foreach (var person in people)
+                PrintPerson(person);
         }
 
         static void PrintPerson(Person person)

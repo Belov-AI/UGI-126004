@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Gender.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="PersonComparerByName.cs" />
+    <Compile Include="PersonComparerDescendingByAge.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -16,7 +16,21 @@ namespace EuclidLibrary
         public Segment AC { get => new Segment(A, C); }
         public Segment BC { get => new Segment(B, C); }
 
-        public Triangle(Point a, Point b, Point c)        {
+        public double Area 
+        {
+            get
+            {
+                var a = AB.Length;
+                var b = AC.Length;
+                var c = BC.Length;
+                var p = (a + b + c) / 2;
+
+                return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+            }
+        }
+
+        public Triangle(Point a, Point b, Point c)
+        {
             A = a;
             B = b;
             C = c;

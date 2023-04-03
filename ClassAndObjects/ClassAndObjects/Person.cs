@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassAndObjects
 {
-    public class Person
+    public class Person : IComparable<Person>
     {
         public static readonly string Species;
         public string Name { get; set; }
@@ -55,12 +55,15 @@ namespace ClassAndObjects
 
         public string GetInfo() => $"{FullName}, возраст {Age}";
 
-        //public void SetAge(int age)
-        //{
-        //    if (age < 1 || age > 150)
-        //        throw new ArgumentException("Возраст должен быть от 1 до 150 лет");
+        public int CompareTo(Person other)
+        {
+            if(Surname != other.Surname)
+                return Surname.CompareTo(other.Surname);
 
-        //    Age = age;
-        //}
+            if(Name != other.Name)
+                return Name.CompareTo(other.Name);
+            
+            return Age.CompareTo(other.Age);
+        }
     }
 }

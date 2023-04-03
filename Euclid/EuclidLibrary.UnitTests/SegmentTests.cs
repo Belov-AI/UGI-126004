@@ -66,5 +66,18 @@ namespace EuclidLibrary.UnitTests
 
             Assert.That(s1.Equals(s2), Is.EqualTo(result));
         }
+
+        [Test]
+        public void CloneTest()
+        {
+            Segment s2 = s.Clone() as Segment;
+
+            Assert.That(s2, Is.Not.SameAs(s));
+            Assert.That(s.Equals(s2), Is.True);
+
+            s2.A = new Point(-1, 4);
+            s2.B = new Point(0, 1);
+            Assert.That(s.Equals(s2), Is.False);
+        }
     }
 }

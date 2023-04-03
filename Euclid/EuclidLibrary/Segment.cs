@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EuclidLibrary
 {
-    public class Segment
+    public class Segment : ICloneable
     {
         public Point A;
         public Point B;
@@ -43,6 +43,11 @@ namespace EuclidLibrary
                 return A.Equals(s.A) && B.Equals(s.B) || A.Equals(s.B) && B.Equals(s.A);
 
             return false;
+        }
+
+        public object Clone()
+        {
+            return new Segment(A.Clone() as Point, B.Clone() as Point);
         }
     }
 }

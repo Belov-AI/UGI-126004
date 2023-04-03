@@ -48,5 +48,13 @@ namespace EuclidLibrary.UnitTests
             Assert.That(t.BC.Equals(new Segment(c, b)), Is.True);
             Assert.That(t.BC.Equals(new Segment(b, a)), Is.False);
         }
+
+        [Test]
+        public void AreaTest()
+        {
+            var delta = Math.Abs(t.Area - 2);
+
+            Assert.That(delta, Is.LessThan(Geometry.Epsilon));
+        }
     }
 }

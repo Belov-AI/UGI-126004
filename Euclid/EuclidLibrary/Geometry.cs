@@ -19,5 +19,17 @@ namespace EuclidLibrary
         }
 
         public static bool IsPointInsideSegment(Point p, Segment s) => s.IsPointInside(p);
+
+        public static Triangle CreateTriangle(Point a, Point b, Point c) 
+        { 
+            var t = new Triangle(a, b, c);
+
+            if(t.AB.Length + t.BC.Length - t.AC.Length > Epsilon &&
+                t.AB.Length + t.AC.Length - t.BC.Length > Epsilon &&
+                t.AC.Length + t.BC.Length -t.AB.Length > Epsilon)
+                return t;
+
+            throw new ArgumentException("Вырожденный треугольник");
+        }
     }
 }

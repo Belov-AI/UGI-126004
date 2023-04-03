@@ -3,11 +3,6 @@ namespace EuclidLibrary.UnitTests
     [TestFixture]
     public class PointTests
     {
-        //[SetUp]
-        //public void Setup()
-        //{
-        //}
-
         [Test]
         public void Constructor_Values_CorrectAssigment()
         {
@@ -61,6 +56,20 @@ namespace EuclidLibrary.UnitTests
             var b = new Point(x2, y2);
 
             Assert.That(a.GetHashCode() == b.GetHashCode(), Is.EqualTo(result));
+        }
+
+        [Test]
+        public void CloneTest()
+        {
+            Point a = new Point(1, 2);
+            Point b = a.Clone() as Point;
+
+            Assert.That(b, Is.Not.SameAs(a));
+            Assert.That(a.Equals(b), Is.True);
+
+            b.X = -1;
+            b.Y = 0;
+            Assert.That(a.Equals(b), Is.False);
         }
     }
 }

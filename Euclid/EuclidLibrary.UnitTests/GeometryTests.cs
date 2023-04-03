@@ -47,5 +47,29 @@ namespace EuclidLibrary.UnitTests
             Assert.That(() => Geometry.CreateSegment(a, b), 
                 Throws.ArgumentException);
         }
+
+        [Test]
+        public void CreateTriangle_PointsNotAtLine_Triangle()
+        {
+            var a = new Point(0, 0);
+            var b = new Point(0, 1);
+            var c = new Point(2, 0);
+
+            var t = Geometry.CreateTriangle(a, b, c);
+
+            Assert.That(t.A, Is.EqualTo(a));
+            Assert.That(t.B, Is.EqualTo(b));
+            Assert.That(t.C, Is.EqualTo(c));
+        }
+
+        [Test]
+        public void CreateTriangle_PointsAtLine_ArgumentException()
+        {
+            var a = new Point(0, 0);
+            var b = new Point(2, 4);
+            var c = new Point(1, 2);
+
+            Assert.That(() => Geometry.CreateTriangle(a, b, c), Throws.ArgumentException);
+        }
     }
 }
