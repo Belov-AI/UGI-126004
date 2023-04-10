@@ -79,5 +79,41 @@ namespace EuclidLibrary.UnitTests
             s2.B = new Point(0, 1);
             Assert.That(s.Equals(s2), Is.False);
         }
+
+        [Test]
+        public void GetEnumeratorTest()
+        {
+            var points = new Point[] { a, b };
+            int i = 0;
+
+            foreach(var point in s)
+                Assert.That(point, Is.SameAs(points[i++]));
+        }
+
+        [Test]
+        public void RotateTest()
+        {
+            var center = new Point(2, 1);
+            var angleInDegrees = 30;
+
+            var p = new Point(1, 2);
+            var pRotated = new Point(
+                2 - Math.Sqrt(2) * Math.Cos(Math.PI / 12),
+                1 + Math.Sqrt(2) * Math.Sin(Math.PI / 12)
+                );
+
+            var q = new Point(0, -1);
+            var qRotated = new Point(
+                2 - 2 * Math.Sqrt(2) * Math.Sin(Math.PI / 12),
+                1 - 2 * Math.Sqrt(2) * Math.Cos(Math.PI / 12)
+                );
+
+            var segment = new Segment(p, q);
+            var segmentRotated = new Segment(pRotated, qRotated);
+
+            segment.Rotate(angleInDegrees, center);
+
+            Assert.That(segment.Equals(segmentRotated), Is.True);
+        }
     }
 }

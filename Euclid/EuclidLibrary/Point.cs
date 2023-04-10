@@ -50,6 +50,9 @@ namespace EuclidLibrary
             //𝑦′ = (𝑥 − 𝑎) ∙ sin 𝛼 + (𝑦 − 𝑏) ∙ cos 𝛼 + 𝑏
             var yNew = (X - center.X) * Math.Sin(angleInRadians) +
                 (Y - center.Y) * Math.Cos(angleInRadians) + center.Y;
+
+            X = xNew;
+            Y = yNew;
         }
     }
 }

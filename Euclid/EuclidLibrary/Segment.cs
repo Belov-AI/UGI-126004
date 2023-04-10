@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EuclidLibrary
 {
-    public class Segment : ICloneable
+    public class Segment : Figure, ICloneable
     {
         public Point A;
         public Point B;
@@ -49,5 +50,12 @@ namespace EuclidLibrary
         {
             return new Segment(A.Clone() as Point, B.Clone() as Point);
         }
+
+        public override IEnumerator<Point> GetEnumerator()
+        {
+            return new SegmentEnumerator(this);
+        }
+
+        //IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

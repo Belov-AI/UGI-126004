@@ -71,5 +71,25 @@ namespace EuclidLibrary.UnitTests
             b.Y = 0;
             Assert.That(a.Equals(b), Is.False);
         }
+
+        [Test]
+        public void RotateTest()
+        {
+            // Assign
+            var a = new Point(1, 2);
+            var center = new Point(2, 1);
+            var angleInDegrees = 30;
+
+            var aExpected = new Point(
+                2 - Math.Sqrt(2) * Math.Cos(Math.PI / 12),
+                1 + Math.Sqrt(2) * Math.Sin(Math.PI / 12)
+                );
+
+            // Act
+            a.Rotate(angleInDegrees, center);
+
+            // Assert
+            Assert.That(a.Equals(aExpected), Is.True);
+        }
     }
 }

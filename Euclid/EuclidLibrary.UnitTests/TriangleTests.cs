@@ -56,5 +56,15 @@ namespace EuclidLibrary.UnitTests
 
             Assert.That(delta, Is.LessThan(Geometry.Epsilon));
         }
+
+        [Test]
+        public void GetEnumerator()
+        {
+            var vertexes = new[] { a, b, c };
+            var i = 0;
+
+            foreach ( var vertex in vertexes )
+                Assert.That(vertex, Is.SameAs(vertexes[i++]));
+        }
     }
 }
