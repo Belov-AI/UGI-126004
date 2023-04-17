@@ -52,6 +52,16 @@ namespace WebService
             else
                 Console.WriteLine(kate2.Login + " не админ");
 
+            var webservice = new Service();
+
+            foreach( var user in users)
+                webservice.AddUser(user);
+
+            webservice.RemoveUser(john);
+
+            foreach(var user in webservice)
+                Console.WriteLine(user.GetInfo());
+
             Console.ReadKey();
         }
     }
