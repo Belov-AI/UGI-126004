@@ -10,18 +10,19 @@ using System.Windows.Forms;
 
 namespace Forms
 {
-    public partial class AdditionalForm : Form
+    public partial class ContainerForm : Form
     {
-        public AdditionalForm()
+        int counter = 0;
+        public ContainerForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void openButton_Click(object sender, EventArgs e)
         {
-            var form = new OwnedForm();
-            AddOwnedForm(form);
-            //form.Owner = this;
+            var form = new DocumentForm();
+            form.Text = "Документ " + (++counter);
+            form.MdiParent = this;
             form.Show();
         }
     }

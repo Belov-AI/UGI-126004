@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace Forms
 {
-    public partial class AdditionalForm : Form
+    public partial class OwnedForm : Form
     {
-        public AdditionalForm()
+        public OwnedForm()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var form = new OwnedForm();
-            AddOwnedForm(form);
-            //form.Owner = this;
-            form.Show();
         }
     }
 }

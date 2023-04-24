@@ -40,7 +40,19 @@ namespace Forms
 
         private void questionButtonutton_Click(object sender, EventArgs e)
         {
-            new DialogForm().ShowDialog();
+            var result = new DialogForm().ShowDialog();
+
+            if (result == DialogResult.Yes)
+                MessageBox.Show("Очень хорошо!");
+            else if (result == DialogResult.No)
+                MessageBox.Show("А жаль :(");
+            else if (result == DialogResult.Cancel)
+                MessageBox.Show("Не ухордите от ответа");
+        }
+
+        private void openContainerButton_Click(object sender, EventArgs e)
+        {
+            new ContainerForm().Show();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Forms
 {
-    partial class AdditionalForm
+    partial class ContainerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.openButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // openButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(129, 200);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 79);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Открыть подчиненную форму";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.openButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.openButton.Location = new System.Drawing.Point(313, 12);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(154, 37);
+            this.openButton.TabIndex = 0;
+            this.openButton.Text = "Открыть документ";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
-            // AdditionalForm
+            // ContainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 311);
-            this.Controls.Add(this.button1);
-            this.Name = "AdditionalForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Дополнительная форма";
+            this.ClientSize = new System.Drawing.Size(800, 663);
+            this.Controls.Add(this.openButton);
+            this.IsMdiContainer = true;
+            this.Name = "ContainerForm";
+            this.Text = "Контейнер";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button openButton;
     }
 }
