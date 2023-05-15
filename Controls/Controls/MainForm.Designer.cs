@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.captionLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,6 +42,8 @@
             this.size14radioButton = new System.Windows.Forms.RadioButton();
             this.wordsListBox = new System.Windows.Forms.ListBox();
             this.fontFamilyComboBox = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // captionLabel
@@ -49,7 +52,7 @@
             this.captionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.captionLabel.Location = new System.Drawing.Point(23, 28);
             this.captionLabel.Name = "captionLabel";
-            this.captionLabel.Size = new System.Drawing.Size(249, 79);
+            this.captionLabel.Size = new System.Drawing.Size(308, 79);
             this.captionLabel.TabIndex = 0;
             this.captionLabel.Text = "Надпись";
             this.captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,7 +74,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(30, 159);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 23);
+            this.textBox1.Size = new System.Drawing.Size(301, 23);
             this.textBox1.TabIndex = 2;
             // 
             // inputButton
@@ -87,7 +90,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(318, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(355, 12);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(293, 539);
             this.richTextBox1.TabIndex = 4;
@@ -174,7 +177,7 @@
             this.wordsListBox.ItemHeight = 16;
             this.wordsListBox.Location = new System.Drawing.Point(30, 346);
             this.wordsListBox.Name = "wordsListBox";
-            this.wordsListBox.Size = new System.Drawing.Size(270, 68);
+            this.wordsListBox.Size = new System.Drawing.Size(301, 68);
             this.wordsListBox.TabIndex = 7;
             this.wordsListBox.SelectedIndexChanged += new System.EventHandler(this.wordsListBox_SelectedIndexChanged);
             // 
@@ -185,15 +188,25 @@
             this.fontFamilyComboBox.FormattingEnabled = true;
             this.fontFamilyComboBox.Location = new System.Drawing.Point(144, 207);
             this.fontFamilyComboBox.Name = "fontFamilyComboBox";
-            this.fontFamilyComboBox.Size = new System.Drawing.Size(156, 24);
+            this.fontFamilyComboBox.Size = new System.Drawing.Size(187, 24);
             this.fontFamilyComboBox.TabIndex = 8;
             this.fontFamilyComboBox.SelectedIndexChanged += new System.EventHandler(this.fontFamilyComboBox_SelectedIndexChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(30, 441);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(301, 200);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 607);
+            this.ClientSize = new System.Drawing.Size(664, 689);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.fontFamilyComboBox);
             this.Controls.Add(this.wordsListBox);
             this.Controls.Add(this.size14radioButton);
@@ -209,6 +222,7 @@
             this.Controls.Add(this.captionLabel);
             this.Name = "MainForm";
             this.Text = "Элементы управления";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +243,7 @@
         private System.Windows.Forms.RadioButton size14radioButton;
         private System.Windows.Forms.ListBox wordsListBox;
         private System.Windows.Forms.ComboBox fontFamilyComboBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
