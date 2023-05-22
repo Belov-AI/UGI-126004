@@ -11,5 +11,6 @@ namespace MazeLibrary
         public int Row { get; set; }
         public int Column { get; set; }
         public bool Wall { get; set; }
+        public int Weight { get; set; }
     }
 }
