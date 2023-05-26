@@ -12,6 +12,7 @@ namespace Controls
 {
     public partial class MainForm : Form
     {
+        const int time = 30;
         public MainForm()
         {
             InitializeComponent();
@@ -23,6 +24,10 @@ namespace Controls
             fontFamilyComboBox.Items.Add("Microsoft San Serif");
             fontFamilyComboBox.Items.Add("Times New Roman");
             fontFamilyComboBox.Items.Add("Courier New");
+
+            pictureBox1.Load(Application.StartupPath + @"\Images\pic7.jpg");
+
+            progressBar1.Maximum = 7 * time;
         }
 
         private void captionLabel_MouseHover(object sender, EventArgs e)
@@ -80,6 +85,29 @@ namespace Controls
                 fontFamilyComboBox.SelectedItem.ToString(),
                 captionLabel.Font.Size,
                 captionLabel.Font.Style);
+        }
+
+        private void slideShowButton_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            slideShowButton.Enabled = false;
+            progressBar1.Value = 0;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(progressBar1.Value == progressBar1.Maximum)
+            {
+                timer1.Enabled = false;
+                slideShowButton.Enabled = true;
+                return;
+            }
+
+            if (progressBar1.Value % time == 0)
+                pictureBox1.Image = Properties.Resources.ResourceManager
+                    .GetObject("pic" + (progressBar1.Value / time + 1).ToString()) as Image;
+
+            progressBar1.Value++;
         }
     }
 }
