@@ -46,6 +46,8 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.slideShowButton = new System.Windows.Forms.Button();
+            this.openFileButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             this.label1.Location = new System.Drawing.Point(20, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 17);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Введите тест";
             // 
             // textBox1
@@ -78,7 +80,8 @@
             this.textBox1.Location = new System.Drawing.Point(23, 112);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(301, 23);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // inputButton
             // 
@@ -93,9 +96,10 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(348, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(293, 492);
+            this.richTextBox1.Size = new System.Drawing.Size(570, 506);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -106,7 +110,7 @@
             this.boldCheckBox.Location = new System.Drawing.Point(23, 206);
             this.boldCheckBox.Name = "boldCheckBox";
             this.boldCheckBox.Size = new System.Drawing.Size(109, 21);
-            this.boldCheckBox.TabIndex = 5;
+            this.boldCheckBox.TabIndex = 4;
             this.boldCheckBox.Text = "полужирный";
             this.boldCheckBox.UseVisualStyleBackColor = true;
             this.boldCheckBox.CheckedChanged += new System.EventHandler(this.ChangeFontStyle);
@@ -130,7 +134,7 @@
             this.underlineCheckBox.Location = new System.Drawing.Point(23, 260);
             this.underlineCheckBox.Name = "underlineCheckBox";
             this.underlineCheckBox.Size = new System.Drawing.Size(129, 21);
-            this.underlineCheckBox.TabIndex = 5;
+            this.underlineCheckBox.TabIndex = 6;
             this.underlineCheckBox.Text = "подчеркивание";
             this.underlineCheckBox.UseVisualStyleBackColor = true;
             this.underlineCheckBox.CheckedChanged += new System.EventHandler(this.ChangeFontStyle);
@@ -142,7 +146,7 @@
             this.size10radioButton.Location = new System.Drawing.Point(198, 209);
             this.size10radioButton.Name = "size10radioButton";
             this.size10radioButton.Size = new System.Drawing.Size(61, 21);
-            this.size10radioButton.TabIndex = 6;
+            this.size10radioButton.TabIndex = 8;
             this.size10radioButton.Text = "10 пт";
             this.size10radioButton.UseVisualStyleBackColor = true;
             this.size10radioButton.CheckedChanged += new System.EventHandler(this.ChangeFontSize);
@@ -155,7 +159,7 @@
             this.size12radioButton.Location = new System.Drawing.Point(198, 237);
             this.size12radioButton.Name = "size12radioButton";
             this.size12radioButton.Size = new System.Drawing.Size(61, 21);
-            this.size12radioButton.TabIndex = 6;
+            this.size12radioButton.TabIndex = 9;
             this.size12radioButton.TabStop = true;
             this.size12radioButton.Text = "12 пт";
             this.size12radioButton.UseVisualStyleBackColor = true;
@@ -168,7 +172,7 @@
             this.size14radioButton.Location = new System.Drawing.Point(198, 264);
             this.size14radioButton.Name = "size14radioButton";
             this.size14radioButton.Size = new System.Drawing.Size(61, 21);
-            this.size14radioButton.TabIndex = 6;
+            this.size14radioButton.TabIndex = 10;
             this.size14radioButton.Text = "14 пт";
             this.size14radioButton.UseVisualStyleBackColor = true;
             this.size14radioButton.CheckedChanged += new System.EventHandler(this.ChangeFontSize);
@@ -192,7 +196,7 @@
             this.fontFamilyComboBox.Location = new System.Drawing.Point(137, 160);
             this.fontFamilyComboBox.Name = "fontFamilyComboBox";
             this.fontFamilyComboBox.Size = new System.Drawing.Size(187, 24);
-            this.fontFamilyComboBox.TabIndex = 8;
+            this.fontFamilyComboBox.TabIndex = 11;
             this.fontFamilyComboBox.SelectedIndexChanged += new System.EventHandler(this.fontFamilyComboBox_SelectedIndexChanged);
             // 
             // pictureBox1
@@ -200,6 +204,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(23, 394);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(301, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
@@ -222,16 +227,28 @@
             this.slideShowButton.Location = new System.Drawing.Point(106, 659);
             this.slideShowButton.Name = "slideShowButton";
             this.slideShowButton.Size = new System.Drawing.Size(115, 30);
-            this.slideShowButton.TabIndex = 11;
+            this.slideShowButton.TabIndex = 12;
             this.slideShowButton.Text = "Слайд-шоу";
             this.slideShowButton.UseVisualStyleBackColor = true;
             this.slideShowButton.Click += new System.EventHandler(this.slideShowButton_Click);
+            // 
+            // openFileButton
+            // 
+            this.openFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.openFileButton.Location = new System.Drawing.Point(583, 564);
+            this.openFileButton.Name = "openFileButton";
+            this.openFileButton.Size = new System.Drawing.Size(122, 30);
+            this.openFileButton.TabIndex = 13;
+            this.openFileButton.Text = "Открыть файл";
+            this.openFileButton.UseVisualStyleBackColor = true;
+            this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 701);
+            this.ClientSize = new System.Drawing.Size(945, 701);
+            this.Controls.Add(this.openFileButton);
             this.Controls.Add(this.slideShowButton);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
@@ -275,6 +292,8 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button slideShowButton;
+        private System.Windows.Forms.Button openFileButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
