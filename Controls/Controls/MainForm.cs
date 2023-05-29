@@ -140,12 +140,24 @@ namespace Controls
 
         private void richTextBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-
+            if(e.KeyCode == Keys.Tab)
+                e.IsInputKey = true;
         }
 
         private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)Keys.Tab)
+            {
+                var start = richTextBox1.SelectionStart;
+                var lenght = richTextBox1.SelectionLength;
 
+                richTextBox1.Text = richTextBox1.Text.Substring(0, start) + "    " +
+                    richTextBox1.Text.Substring(start + lenght);
+
+                richTextBox1.SelectionStart = start + 4; ;
+               
+                e.Handled = true;
+            }
         }
     }
 }
